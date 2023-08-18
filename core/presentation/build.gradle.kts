@@ -1,21 +1,17 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
 }
 
 android {
-    namespace = "chepsi.weather.app"
+    namespace = "chepsi.weather.presentation"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "chepsi.weather.app"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -37,10 +33,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:local-data-source"))
-    implementation(project(":core:remote-data-source"))
     implementation(project(":core:domain"))
-    implementation(project(":core:data"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
