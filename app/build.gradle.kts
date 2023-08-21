@@ -30,19 +30,20 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
 dependencies {
     implementation(project(":core:local-data-source"))
     implementation(project(":core:remote-data-source"))
-    implementation(project(":core:domain"))
     implementation(project(":core:data"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:presentation"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
