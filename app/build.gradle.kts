@@ -49,6 +49,8 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
 
+    implementation(libs.ktor.client.android)
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
