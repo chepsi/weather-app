@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
@@ -20,13 +19,23 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("boolean", "DEBUG", "false")
+        }
+
+        debug {
+            buildConfigField("boolean", "DEBUG", "true")
         }
     }
     compileOptions {
@@ -50,6 +59,8 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.ktor.client.android)
+
+    implementation(libs.timber)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
