@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.kotlinx.serialization.json)
 
+    implementation (libs.timber)
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
