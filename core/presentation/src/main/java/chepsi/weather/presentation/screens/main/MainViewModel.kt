@@ -22,27 +22,6 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     var mainScreenState by mutableStateOf(MainScreenState())
 
-/*    fun onFetchMainScreenDetails() {
-        viewModelScope.launch {
-            val daysForecast = listOf(
-                DayForecast("Monday", "Clear", "18", R.drawable.img_clear),
-                DayForecast("Tuesday", "Cloudy", "8", R.drawable.img_partly_sunny),
-                DayForecast("Wednesday", "Cloudy", "18", R.drawable.img_rainy),
-                DayForecast("Thursday", "Cloudy", "18", R.drawable.img_clear),
-                DayForecast("Friday", "Cloudy", "18", R.drawable.img_clear),
-            )
-            val newState = MainScreenState(
-                currentTemperature = "18",
-                minimumTemperature = "16",
-                maximumTemperature = "23",
-                currentWeather = ForestCloudy,
-                daysForecast = daysForecast
-            )
-
-            mainScreenState = newState
-        }
-    }*/
-
     fun onFetchMainScreenDetails() {
         viewModelScope.launch {
             homeRepository.fetchHomeInformation().collect { homeInformation ->
@@ -52,7 +31,7 @@ class MainViewModel @Inject constructor(
                     maximumTemperature = homeInformation.maximumTemperature.toString(),
                     currentWeather = when (homeInformation.weather) {
                         WeatherDomainModel.Cloudy -> ForestCloudy
-                        WeatherDomainModel.Sunny -> WeatherCondition.ForestSunny
+                        WeatherDomainModel.Sunny, WeatherDomainModel.Default -> WeatherCondition.ForestSunny
                         WeatherDomainModel.Rainy -> WeatherCondition.ForestRainy
                     },
                     daysForecast = homeInformation.daysAheadForecast.map {
@@ -62,7 +41,7 @@ class MainViewModel @Inject constructor(
                             temperature = it.temperature.toString(),
                             icon = when (it.weather) {
                                 WeatherDomainModel.Cloudy -> R.drawable.img_clear
-                                WeatherDomainModel.Sunny -> R.drawable.img_partly_sunny
+                                WeatherDomainModel.Sunny, WeatherDomainModel.Default -> R.drawable.img_partly_sunny
                                 WeatherDomainModel.Rainy -> R.drawable.img_rainy
                             }
                         )

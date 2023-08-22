@@ -20,4 +20,5 @@ sealed interface WeatherDomainModel {
     object Cloudy : WeatherDomainModel
     object Sunny : WeatherDomainModel
     object Rainy : WeatherDomainModel
+    object Default : WeatherDomainModel
 }
