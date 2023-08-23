@@ -70,6 +70,8 @@ dependencies {
 
     kapt(libs.hilt.android.compiler)
 
+    implementation (libs.timber)
+
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 

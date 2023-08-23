@@ -16,9 +16,9 @@ data class DayAheadForecast(
     val temperature: Int
 )
 
-sealed interface WeatherDomainModel {
-    object Cloudy : WeatherDomainModel
-    object Sunny : WeatherDomainModel
-    object Rainy : WeatherDomainModel
-    object Default : WeatherDomainModel
+sealed class WeatherDomainModel(val name:String) {
+    object Cloudy : WeatherDomainModel("Cloudy")
+    object Sunny : WeatherDomainModel("Sunny")
+    object Rainy : WeatherDomainModel("Rainy")
+    object Default : WeatherDomainModel("Other")
 }
