@@ -1,8 +1,13 @@
 package chepsi.weather.app.di
 
 import android.content.Context
+import androidx.room.Room
+import chepsi.weather.local_data_source.city.dao.CityDao
+import chepsi.weather.local_data_source.database.AppDatabase
 import chepsi.weather.local_data_source.location.LocationDataSource
 import chepsi.weather.local_data_source.location.LocationSource
+import chepsi.weather.local_data_source.weather.dao.ForecastDao
+import chepsi.weather.local_data_source.weather.dao.WeatherDao
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.Granularity
 import com.google.android.gms.location.LocationRequest
@@ -13,9 +18,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 private const val TIME_INTERVAL_IN_MILLIS = 1000L
 private const val MINIMAL_DISTANCE = 10000f
+private const val DATABASE_NAME = "weather-app-db"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -40,4 +47,23 @@ object LocalDataSourceModule {
     fun providesLocationDataSource(
         locationRequest: LocationRequest, fusedLocationProviderClient: FusedLocationProviderClient
     ): LocationSource = LocationDataSource(fusedLocationProviderClient, locationRequest)
+
+    @Provides
+    @Singleton
+    fun providesDatabase(
+        context: Context
+    ): AppDatabase = Room.databaseBuilder(
+        context,
+        AppDatabase::class.java,
+        DATABASE_NAME
+    ).build()
+
+    @Provides
+    fun providesWeatherDao(database: AppDatabase): WeatherDao = database.weatherDao()
+
+    @Provides
+    fun providesCityDao(database: AppDatabase): CityDao = database.cityDao()
+
+    @Provides
+    fun providesForecastDao(database: AppDatabase): ForecastDao = database.forecastDao()
 }
