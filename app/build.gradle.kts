@@ -62,6 +62,8 @@ dependencies {
 
     implementation(libs.timber)
 
+    implementation(libs.play.services.location)
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
