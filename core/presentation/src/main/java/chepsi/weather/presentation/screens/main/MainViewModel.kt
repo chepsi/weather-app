@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import chepsi.weather.domain.home.model.WeatherDomainModel
 import chepsi.weather.domain.home.repository.HomeRepository
 import chepsi.weather.presentation.R
+import chepsi.weather.presentation.screens.main.mapper.DateMapper.toDayOfWeek
 import chepsi.weather.presentation.screens.main.model.DayForecast
 import chepsi.weather.presentation.screens.main.model.MainScreenState
 import chepsi.weather.presentation.screens.main.model.WeatherCondition
@@ -34,15 +35,16 @@ class MainViewModel @Inject constructor(
                         WeatherDomainModel.Sunny, WeatherDomainModel.Default -> WeatherCondition.ForestSunny
                         WeatherDomainModel.Rainy -> WeatherCondition.ForestRainy
                     },
-                    daysForecast = homeInformation.daysAheadForecast.map {
+                    daysForecast = homeInformation.daysAheadForecast.map { forecast ->
                         DayForecast(
-                            day = it.day,
-                            name = it.weather.toString(),
-                            temperature = it.temperature.toString(),
-                            icon = when (it.weather) {
-                                WeatherDomainModel.Cloudy -> R.drawable.img_clear
-                                WeatherDomainModel.Sunny, WeatherDomainModel.Default -> R.drawable.img_partly_sunny
+                            day = forecast.day.toDayOfWeek(),
+                            name = forecast.weather.name,
+                            temperature = forecast.temperature.toString(),
+                            icon = when (forecast.weather) {
+                                WeatherDomainModel.Cloudy -> R.drawable.img_partly_sunny
+                                WeatherDomainModel.Sunny -> R.drawable.img_clear
                                 WeatherDomainModel.Rainy -> R.drawable.img_rainy
+                                WeatherDomainModel.Default -> R.drawable.img_rainy
                             }
                         )
                     }

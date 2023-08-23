@@ -14,10 +14,10 @@ object DataToDomainModelMapper {
         daysAheadForecast = cityForecast.map {
             DayAheadForecast(
                 day = it.date,
-                weather = weather.toWeatherConditionDomainMapper(),
+                weather = it.weather.toWeatherConditionDomainMapper(),
                 temperature = it.temperature.toInt()
             )
-        },
+        }.filter { it.day.contains("12:00") }.distinctBy { it.day },
         seaLevel = 1000
     )
 
