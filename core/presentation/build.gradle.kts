@@ -56,7 +56,7 @@ dependencies {
     implementation(libs.material)
 
     implementation(libs.hilt.android)
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -66,7 +66,7 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
 
-    implementation("com.google.accompanist:accompanist-permissions:0.25.0")
+    implementation(libs.accompanist.permissions)
 
     kapt(libs.hilt.android.compiler)
 

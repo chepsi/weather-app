@@ -10,7 +10,7 @@ import chepsi.weather.remote_data_source.models.ForecastApiModel
 object ApiToDataModelMapper {
     fun CurrentWeatherApiModel.toData(forecast: ForecastApiModel) = ForecastDataModel(
         cityName = forecast.city?.name.orEmpty(),
-        cityId = forecast.city?.id?.toString().orEmpty(),
+        cityId = forecast.city?.id ?: 0,
         cityForecast = forecast.forecast?.toData() ?: emptyList(),
         coordinates = CityCoordinatesDataModel(
             latitude = coord?.lat.orZero(),

@@ -1,7 +1,10 @@
 [versions]
+accompanist-permissions = "0.25.0"
 agp = "8.2.0-alpha16"
 hilt-android-compiler = "2.45"
+hilt-navigation-compose = "1.0.0"
 kotlin = "1.8.21"
+kotlin-ksp = "1.8.21-1.0.11"
 core-ktx = "1.10.1"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
@@ -16,9 +19,16 @@ kotlinx-serialization-json = "1.4.1"
 ktor-client = "2.2.2"
 ktor-client-serialization = "1.5.0"
 play-services-location = "21.0.1"
+room-ktx = "2.5.2"
 timber = "5.0.1"
 
 [libraries]
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-permissions" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-ktx" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-ktx" }
+androidx-room-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-ktx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-ktx" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android-compiler" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android-compiler" }
@@ -51,6 +61,7 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlinKsp = { id = "com.google.devtools.ksp", version.ref = "kotlin-ksp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 daggerHilt = {id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

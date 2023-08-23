@@ -1,8 +1,8 @@
 package chepsi.weather.data.home.model
 
 data class ForecastDataModel(
+    val cityId: Int,
     val cityName: String,
-    val cityId: String,
     val cityForecast: List<CityForecastDataModel>,
     val seaLevel: Int,
     val weather: String,
@@ -10,17 +10,4 @@ data class ForecastDataModel(
     val minimumTemperature: Double,
     val maximumTemperature: Double,
     val currentTemperature: Double
-)
-
-data class CityForecastDataModel(
-    val date: String,
-    val temperature: Double,
-    val minimumTemperature: Double,
-    val maximumTemperature: Double,
-    val weather: String
-)
-
-data class CityCoordinatesDataModel(
-    val latitude: Double,
-    val longitude: Double
 )
