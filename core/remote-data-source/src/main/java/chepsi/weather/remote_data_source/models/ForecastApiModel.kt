@@ -12,7 +12,7 @@ data class ForecastApiModel(
     @SerialName("cod")
     val cod: String? = null,
     @SerialName("list")
-    val list: List<DayForecastApiModel>? = null,
+    val forecast: List<DayForecastApiModel>? = null,
     @SerialName("message")
     val message: Int? = null
 ) {
