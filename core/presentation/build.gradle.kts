@@ -66,6 +66,8 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
 
+    implementation("com.google.accompanist:accompanist-permissions:0.25.0")
+
     kapt(libs.hilt.android.compiler)
 
     debugImplementation(libs.ui.tooling)
@@ -76,4 +78,14 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.ui.test.junit4)
+}
+
+kotlin {
+    sourceSets {
+        all {
+            languageSettings.apply {
+                optIn("com.google.accompanist.permissions.ExperimentalPermissionsApi")
+            }
+        }
+    }
 }

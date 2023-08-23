@@ -1,3 +1,4 @@
 <resources>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="txt_error_location_rationale">We need location Permissions to get current location</string>
+    <string name="btn_retry">Retry</string>
 </resources>

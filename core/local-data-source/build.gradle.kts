@@ -39,6 +39,8 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
 
+    implementation(libs.play.services.location)
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
