@@ -53,7 +53,8 @@ class MainViewModelTest {
             maximumTemperature = 22,
             weather = Sunny,
             seaLevel = 1000,
-            daysAheadForecast = givenForecast
+            daysAheadForecast = givenForecast,
+            cityName = "Gotham"
         )
         coEvery { homeRepository.fetchHomeInformation() } returns flowOf(givenResponse)
 
@@ -72,7 +73,8 @@ class MainViewModelTest {
                     temperature = "20 °",
                     weather = ForestSunny
                 )
-            )
+            ),
+            cityName = "Gotham"
         )
         val actualValue = classUnderTest.mainScreenState
         assertEquals(expectedValue, actualValue)
