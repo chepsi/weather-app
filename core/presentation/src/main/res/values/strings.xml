@@ -1,4 +1,8 @@
 <resources>
     <string name="txt_error_location_rationale">We need location Permissions to get current location</string>
+    <string name="txt_min_temperature">%1$s \nmin</string>
+    <string name="txt_current_temperature">%1$s \nCurrent</string>
+    <string name="txt_max_temperature">%1$s \nmax</string>
+
     <string name="btn_retry">Retry</string>
 </resources>
