@@ -6,11 +6,11 @@ data class HomeRepositoryDomainModel(
     val maximumTemperature: Int,
     val weather: WeatherDomainModel,
     val seaLevel: Int,
-    val daysAheadForecast: List<DayAheadForecast>
+    val daysAheadForecast: List<ForecastDomainModel>
 
 )
 
-data class DayAheadForecast(
+data class ForecastDomainModel(
     val day: String,
     val weather: WeatherDomainModel,
     val temperature: Int

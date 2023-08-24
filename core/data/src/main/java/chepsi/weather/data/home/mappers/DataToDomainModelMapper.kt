@@ -1,7 +1,7 @@
 package chepsi.weather.data.home.mappers
 
 import chepsi.weather.data.home.model.ForecastDataModel
-import chepsi.weather.domain.home.model.DayAheadForecast
+import chepsi.weather.domain.home.model.ForecastDomainModel
 import chepsi.weather.domain.home.model.HomeRepositoryDomainModel
 import chepsi.weather.domain.home.model.WeatherDomainModel
 
@@ -12,7 +12,7 @@ object DataToDomainModelMapper {
         maximumTemperature = maximumTemperature.toInt(),
         weather = weather.toWeatherConditionDomainMapper(),
         daysAheadForecast = cityForecast.map {
-            DayAheadForecast(
+            ForecastDomainModel(
                 day = it.date,
                 weather = it.weather.toWeatherConditionDomainMapper(),
                 temperature = it.temperature.toInt()
