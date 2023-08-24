@@ -94,7 +94,6 @@ class HomeDataRepositoryTest {
         }
 
         // Then
-
         assertEquals(expectedValue, actualValue)
     }
 
