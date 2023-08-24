@@ -63,14 +63,14 @@ class MainViewModelTest {
 
         // Then
         val expectedValue = MainScreenState(
-            currentTemperature = "20 °",
-            minimumTemperature = "18 °",
-            maximumTemperature = "22 °",
+            currentTemperature = "20°C",
+            minimumTemperature = "18°C",
+            maximumTemperature = "22°C",
             currentWeather = ForestSunny,
             daysForecast = listOf(
                 DayForecast(
                     day = "Thursday",
-                    temperature = "20 °",
+                    temperature = "20°C",
                     weather = ForestSunny
                 )
             ),
