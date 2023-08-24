@@ -35,8 +35,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:local-data-source"))
-    implementation(project(":core:remote-data-source"))
+    implementation(project(":core:localdatasource"))
+    implementation(project(":core:remotedatasource"))
     implementation(project(":core:domain"))
 
     implementation(libs.core.ktx)
@@ -46,7 +46,7 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
-    implementation (libs.timber)
+    implementation(libs.timber)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

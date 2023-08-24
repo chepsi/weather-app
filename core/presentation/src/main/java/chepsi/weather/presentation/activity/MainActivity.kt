@@ -21,17 +21,21 @@ class MainActivity : ComponentActivity() {
                 val locationPermissions = rememberMultiplePermissionsState(
                     listOf(
                         android.Manifest.permission.ACCESS_FINE_LOCATION,
-                        android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                    ),
+                        android.Manifest.permission.ACCESS_COARSE_LOCATION
+                    )
                 )
                 if (locationPermissions.allPermissionsGranted) {
                     MainScreen()
                 } else {
                     if (locationPermissions.shouldShowRationale) {
                         ErrorScreen(
-                            errorMessage = stringResource(id = R.string.txt_error_location_rationale),
+                            errorMessage = stringResource(
+                                id = R.string.txt_error_location_rationale
+                            ),
                             retryButtonText = stringResource(id = R.string.btn_retry),
-                            onRetryAction = { locationPermissions.launchMultiplePermissionRequest() }
+                            onRetryAction = {
+                                locationPermissions.launchMultiplePermissionRequest()
+                            }
                         )
                     } else {
                         LaunchedEffect(key1 = Unit) {

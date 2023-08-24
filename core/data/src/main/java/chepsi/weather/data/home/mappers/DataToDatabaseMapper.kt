@@ -1,9 +1,9 @@
 package chepsi.weather.data.home.mappers
 
 import chepsi.weather.data.home.model.ForecastDataModel
-import chepsi.weather.local_data_source.city.model.CityEntity
-import chepsi.weather.local_data_source.weather.model.ForecastEntity
-import chepsi.weather.local_data_source.weather.model.WeatherLocalSourceEntity
+import chepsi.weather.localdatasource.city.model.CityEntity
+import chepsi.weather.localdatasource.weather.model.ForecastEntity
+import chepsi.weather.localdatasource.weather.model.WeatherLocalSourceEntity
 
 object DataToDatabaseMapper {
     fun ForecastDataModel.toWeatherEntity() = WeatherLocalSourceEntity(

@@ -14,5 +14,4 @@ abstract class DataModule {
     @Binds
     @Singleton
     abstract fun provideHomeRepository(homeDataRepository: HomeDataRepository): HomeRepository
-
 }

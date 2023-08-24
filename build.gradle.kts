@@ -1,3 +1,5 @@
+
+
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.kotlinAndroid) apply false
@@ -6,4 +8,17 @@ plugins {
     alias(libs.plugins.daggerHilt) apply false
     alias(libs.plugins.kotlinSerialization) apply false
     alias(libs.plugins.kotlinKsp) apply false
+    id("org.jlleitschuh.gradle.ktlint") version "11.5.1"
+}
+
+allprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+
+    ktlint {
+        android.set(true)
+        verbose.set(true)
+        filter {
+            exclude { element -> element.file.path.contains("generated/") }
+        }
+    }
 }
