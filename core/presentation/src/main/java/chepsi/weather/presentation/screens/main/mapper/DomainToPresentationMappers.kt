@@ -22,5 +22,5 @@ object DomainToPresentationMappers {
         )
     }
 
-    fun Int.toTemperatureString() = "$this °"
+    fun Int.toTemperatureString() = "$this°C"
 }
