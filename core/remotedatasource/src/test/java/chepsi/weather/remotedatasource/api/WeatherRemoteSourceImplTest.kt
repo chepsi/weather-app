@@ -31,7 +31,7 @@ class WeatherRemoteSourceImplTest {
         runBlocking {
             // When
             val request = LocationRequestModel(0.0, 0.0)
-            val response = WeatherRemoteSourceImpl(client).fetchWeather(request)
+            val response = WeatherRemoteSourceImpl(client, "").fetchWeather(request)
 
             // Then
             val expected = Json.decodeFromString<WeatherApiModel>(mockWeatherResponse)
@@ -52,7 +52,7 @@ class WeatherRemoteSourceImplTest {
         runBlocking {
             // When
             val request = LocationRequestModel(0.0, 0.0)
-            val response = WeatherRemoteSourceImpl(client).fetchForecast(request)
+            val response = WeatherRemoteSourceImpl(client, "").fetchForecast(request)
 
             // Then
             val expected = Json.decodeFromString<ForecastApiModel>(mockForecastResponse)

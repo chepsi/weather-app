@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlinSerialization) apply false
     alias(libs.plugins.kotlinKsp) apply false
     alias(libs.plugins.ktLint)
+    alias(libs.plugins.secrets) apply false
 }
 
 allprojects {

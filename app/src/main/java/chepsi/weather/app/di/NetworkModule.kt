@@ -1,5 +1,6 @@
 package chepsi.weather.app.di
 
+import chepsi.weather.app.BuildConfig
 import chepsi.weather.remotedatasource.api.WeatherRemoteSource
 import chepsi.weather.remotedatasource.api.WeatherRemoteSourceImpl
 import chepsi.weather.remotedatasource.utils.HttpClientFactory
@@ -11,6 +12,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.android.AndroidClientEngine
 import io.ktor.client.engine.android.AndroidEngineConfig
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -25,6 +27,12 @@ object NetworkModule {
     fun provideHttpClient(engine: HttpClientEngine): HttpClient = HttpClientFactory().create(engine)
 
     @Provides
-    fun providesWeatherRemoteSource(httpClient: HttpClient): WeatherRemoteSource =
-        WeatherRemoteSourceImpl(httpClient)
+    fun providesWeatherRemoteSource(
+        httpClient: HttpClient,
+        @Named("API_KEY") apiKey: String
+    ): WeatherRemoteSource = WeatherRemoteSourceImpl(httpClient, apiKey)
+
+    @Provides
+    @Named("API_KEY")
+    fun providesApiKey() = BuildConfig.API_KEY
 }
