@@ -42,6 +42,7 @@ libraries used
    Contains logic to fetch current user location and cache as well as entities for the database
     - [Room](https://developer.android.com/jetpack/androidx/releases/room)
     - [Google Play Services](https://developers.google.com/android/guides/setup)
+    - [JsonToKotlinClass](https://plugins.jetbrains.com/plugin/9960-json-to-kotlin-class-jsontokotlinclass-)
 5. **RemoteDataSource**
    Contains logic to make network calls
     - [kotlinx.serialization](https://kotlinlang.org/docs/serialization.html)
