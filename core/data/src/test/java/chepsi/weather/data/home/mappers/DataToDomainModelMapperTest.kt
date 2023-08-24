@@ -35,7 +35,7 @@ private val expectedValue = HomeRepositoryDomainModel(
     minimumTemperature = 12,
     maximumTemperature = 20,
     weather = WeatherDomainModel.Sunny,
-    seaLevel = 1000,
+    seaLevel = 1,
     daysAheadForecast = listOf(
         ForecastDomainModel(
             day = "2023-08-24 12:00:00",

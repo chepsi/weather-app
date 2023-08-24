@@ -53,7 +53,7 @@ private val expectedValue = HomeRepositoryDomainModel(
     minimumTemperature = 12,
     maximumTemperature = 20,
     weather = Sunny,
-    seaLevel = 1000,
+    seaLevel = 1,
     daysAheadForecast = listOf(
         ForecastDomainModel(day = "2023-08-24 12:00:00", weather = Sunny, temperature = 20)
     ),
@@ -72,11 +72,11 @@ class HomeDataRepositoryTest {
     @BeforeEach
     fun setup() {
         classUnderTest = HomeDataRepository(
-            weatherRemoteSource,
-            locationSource,
-            weatherDao,
-            forecastDao,
-            cityDao
+            weatherRemoteSource = weatherRemoteSource,
+            locationSource = locationSource,
+            weatherDao = weatherDao,
+            forecastDao = forecastDao,
+            cityDao = cityDao
         )
     }
 
