@@ -48,7 +48,9 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
                 contentScale = ContentScale.FillHeight
             )
             Text(
-                text = screenState.currentTemperature + "\u00B0" + "\n${screenState.currentWeather.name}",
+                text = screenState.currentTemperature +
+                    "\u00B0" +
+                    "\n${screenState.currentWeather.name}",
                 modifier = Modifier
                     .align(Alignment.Center)
                     .padding(top = 20.dp),

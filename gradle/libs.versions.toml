@@ -3,6 +3,7 @@ accompanist-permissions = "0.25.0"
 agp = "8.2.0-alpha16"
 hilt-android-compiler = "2.45"
 hilt-navigation-compose = "1.0.0"
+kt-lint = "11.5.1"
 kotlin = "1.8.21"
 kotlin-ksp = "1.8.21-1.0.11"
 core-ktx = "1.10.1"
@@ -65,3 +66,4 @@ kotlinKsp = { id = "com.google.devtools.ksp", version.ref = "kotlin-ksp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 daggerHilt = {id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ktLint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "kt-lint" }
