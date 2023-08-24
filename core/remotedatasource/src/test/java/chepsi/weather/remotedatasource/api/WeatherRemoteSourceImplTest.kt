@@ -59,5 +59,4 @@ class WeatherRemoteSourceImplTest {
             assertEquals(expected, response)
         }
     }
-
 }
