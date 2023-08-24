@@ -1,6 +1,6 @@
 [versions]
 accompanist-permissions = "0.25.0"
-agp = "8.2.0-alpha16"
+agp = "8.1.1"
 hilt-android-compiler = "2.45"
 hilt-navigation-compose = "1.0.0"
 junit-jupiter-api = "5.9.3"
