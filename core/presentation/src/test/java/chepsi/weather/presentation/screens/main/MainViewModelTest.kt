@@ -7,7 +7,6 @@ import chepsi.weather.domain.home.repository.HomeRepository
 import chepsi.weather.presentation.screens.main.model.DayForecast
 import chepsi.weather.presentation.screens.main.model.MainScreenState
 import chepsi.weather.presentation.screens.main.model.WeatherPresentationModel.ForestSunny
-import io.mockk.MockKAnnotations
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -28,7 +27,6 @@ class MainViewModelTest {
 
     @BeforeEach
     fun setup() {
-        MockKAnnotations.init(this)
         Dispatchers.setMain(UnconfinedTestDispatcher())
         classUnderTest = MainViewModel(homeRepository)
     }
