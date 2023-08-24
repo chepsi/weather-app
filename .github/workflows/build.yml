@@ -17,6 +17,8 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: 'gradle'
+      - name: Create local.properties file
+        run: echo 'API_KEY=${{ secrets.API_KEY }}' > ./local.properties
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
