@@ -71,7 +71,11 @@ class HomeDataRepositoryTest {
     @BeforeEach
     fun setup() {
         classUnderTest = HomeDataRepository(
-            weatherRemoteSource, locationSource, weatherDao, forecastDao, cityDao
+            weatherRemoteSource,
+            locationSource,
+            weatherDao,
+            forecastDao,
+            cityDao
         )
     }
 
@@ -96,5 +100,4 @@ class HomeDataRepositoryTest {
         // Then
         assertEquals(expectedValue, actualValue)
     }
-
 }
