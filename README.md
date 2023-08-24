@@ -29,6 +29,8 @@ libraries used
    Contains All the UI logic; Screens, ViewModel, Theme etc.
     - [Compose](https://developer.android.com/jetpack/compose)
     - [HiltCompose](https://developer.android.com/jetpack/compose/libraries)
+    - [Google Fonts](https://developer.android.com/jetpack/compose/text/fonts)
+
 2. **Domain**
    Contains Repository Interface and Domain Models
 
