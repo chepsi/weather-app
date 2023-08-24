@@ -7,5 +7,6 @@ data class MainScreenState(
     val minimumTemperature: String = "",
     val maximumTemperature: String = "",
     val currentWeather: WeatherPresentationModel = ForestRainy,
-    val daysForecast: List<DayForecast> = emptyList()
+    val daysForecast: List<DayForecast> = emptyList(),
+    val cityName: String = ""
 )

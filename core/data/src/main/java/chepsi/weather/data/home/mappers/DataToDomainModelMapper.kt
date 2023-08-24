@@ -18,7 +18,8 @@ object DataToDomainModelMapper {
                 temperature = it.temperature.toInt()
             )
         }.filter { it.day.contains("12:00") }.distinctBy { it.day },
-        seaLevel = 1000
+        seaLevel = seaLevel,
+        cityName = cityName
     )
 
     fun String.toWeatherConditionDomainMapper() = when (this) {

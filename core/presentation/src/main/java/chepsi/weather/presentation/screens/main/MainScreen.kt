@@ -66,6 +66,12 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
                     textAlign = TextAlign.Center,
                     fontSize = 40.sp
                 )
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = screenState.cityName,
+                    textAlign = TextAlign.Center,
+                    fontSize = 14.sp
+                )
             }
         }
         Row(

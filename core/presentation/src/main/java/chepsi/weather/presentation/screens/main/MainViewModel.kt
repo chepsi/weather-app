@@ -27,7 +27,8 @@ class MainViewModel @Inject constructor(
                     minimumTemperature = homeInformation.minimumTemperature.toTemperatureString(),
                     maximumTemperature = homeInformation.maximumTemperature.toTemperatureString(),
                     currentWeather = homeInformation.weather.toPresentation(),
-                    daysForecast = homeInformation.daysAheadForecast.toPresentation()
+                    daysForecast = homeInformation.daysAheadForecast.toPresentation(),
+                    cityName = homeInformation.cityName
                 )
             }
         }

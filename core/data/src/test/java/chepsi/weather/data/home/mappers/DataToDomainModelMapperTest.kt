@@ -42,7 +42,8 @@ private val expectedValue = HomeRepositoryDomainModel(
             weather = WeatherDomainModel.Sunny,
             temperature = 20
         )
-    )
+    ),
+    cityName = "Gotham"
 )
 
 class DataToDomainModelMapperTest {
