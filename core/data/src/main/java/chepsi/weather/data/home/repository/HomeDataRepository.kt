@@ -9,12 +9,12 @@ import chepsi.weather.data.home.mappers.DatabaseToDataModelMapper
 import chepsi.weather.data.home.model.ForecastDataModel
 import chepsi.weather.domain.home.model.HomeRepositoryDomainModel
 import chepsi.weather.domain.home.repository.HomeRepository
-import chepsi.weather.local_data_source.city.dao.CityDao
-import chepsi.weather.local_data_source.location.LocationSource
-import chepsi.weather.local_data_source.weather.dao.ForecastDao
-import chepsi.weather.local_data_source.weather.dao.WeatherDao
-import chepsi.weather.remote_data_source.api.WeatherRemoteSource
-import chepsi.weather.remote_data_source.models.LocationRequestModel
+import chepsi.weather.localdatasource.city.dao.CityDao
+import chepsi.weather.localdatasource.location.LocationSource
+import chepsi.weather.localdatasource.weather.dao.ForecastDao
+import chepsi.weather.localdatasource.weather.dao.WeatherDao
+import chepsi.weather.remotedatasource.api.WeatherRemoteSource
+import chepsi.weather.remotedatasource.models.LocationRequestModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -34,7 +34,7 @@ class HomeDataRepository @Inject constructor(
         flow2 = cityDao.getAll(),
         flow3 = forecastDao.getAll()
     ) { weather, city, forecast ->
-         if (forecast.isEmpty()) {
+        if (forecast.isEmpty()) {
             refreshDatabase().toDomain()
         } else {
             DatabaseToDataModelMapper.toData(weather, city, forecast).toDomain()
@@ -49,8 +49,8 @@ class HomeDataRepository @Inject constructor(
             latitude = currentLocation.latitude,
             longitude = currentLocation.longitude
         )
-        val weather = weatherRemoteSource.fetchCurrentLocationWeather(locationRequestModel)
-        val forecast = weatherRemoteSource.fetchDaysAheadWeather(locationRequestModel)
+        val weather = weatherRemoteSource.fetchWeather(locationRequestModel)
+        val forecast = weatherRemoteSource.fetchForecast(locationRequestModel)
         val data = weather.toData(forecast)
         weatherDao.insert(data.toWeatherEntity())
         forecastDao.insert(data.toForecastEntity())

@@ -48,8 +48,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:local-data-source"))
-    implementation(project(":core:remote-data-source"))
+    implementation(project(":core:localdatasource"))
+    implementation(project(":core:remotedatasource"))
     implementation(project(":core:data"))
     implementation(project(":core:domain"))
     implementation(project(":core:presentation"))

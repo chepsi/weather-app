@@ -2,12 +2,12 @@ package chepsi.weather.app.di
 
 import android.content.Context
 import androidx.room.Room
-import chepsi.weather.local_data_source.city.dao.CityDao
-import chepsi.weather.local_data_source.database.AppDatabase
-import chepsi.weather.local_data_source.location.LocationDataSource
-import chepsi.weather.local_data_source.location.LocationSource
-import chepsi.weather.local_data_source.weather.dao.ForecastDao
-import chepsi.weather.local_data_source.weather.dao.WeatherDao
+import chepsi.weather.localdatasource.city.dao.CityDao
+import chepsi.weather.localdatasource.database.AppDatabase
+import chepsi.weather.localdatasource.location.LocationDataSource
+import chepsi.weather.localdatasource.location.LocationSource
+import chepsi.weather.localdatasource.weather.dao.ForecastDao
+import chepsi.weather.localdatasource.weather.dao.WeatherDao
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.Granularity
 import com.google.android.gms.location.LocationRequest
@@ -45,7 +45,8 @@ object LocalDataSourceModule {
 
     @Provides
     fun providesLocationDataSource(
-        locationRequest: LocationRequest, fusedLocationProviderClient: FusedLocationProviderClient
+        locationRequest: LocationRequest,
+        fusedLocationProviderClient: FusedLocationProviderClient
     ): LocationSource = LocationDataSource(fusedLocationProviderClient, locationRequest)
 
     @Provides

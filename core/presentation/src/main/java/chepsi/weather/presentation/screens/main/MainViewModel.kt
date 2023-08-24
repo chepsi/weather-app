@@ -5,7 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import chepsi.weather.domain.home.model.WeatherDomainModel
+import chepsi.weather.domain.home.model.WeatherDomainModel.Cloudy
+import chepsi.weather.domain.home.model.WeatherDomainModel.Default
+import chepsi.weather.domain.home.model.WeatherDomainModel.Rainy
+import chepsi.weather.domain.home.model.WeatherDomainModel.Sunny
 import chepsi.weather.domain.home.repository.HomeRepository
 import chepsi.weather.presentation.R
 import chepsi.weather.presentation.screens.main.mapper.DateMapper.toDayOfWeek
@@ -31,9 +34,9 @@ class MainViewModel @Inject constructor(
                     minimumTemperature = homeInformation.minimumTemperature.toString(),
                     maximumTemperature = homeInformation.maximumTemperature.toString(),
                     currentWeather = when (homeInformation.weather) {
-                        WeatherDomainModel.Cloudy -> ForestCloudy
-                        WeatherDomainModel.Sunny, WeatherDomainModel.Default -> WeatherCondition.ForestSunny
-                        WeatherDomainModel.Rainy -> WeatherCondition.ForestRainy
+                        Cloudy -> ForestCloudy
+                        Sunny, Default -> WeatherCondition.ForestSunny
+                        Rainy -> WeatherCondition.ForestRainy
                     },
                     daysForecast = homeInformation.daysAheadForecast.map { forecast ->
                         DayForecast(
@@ -41,10 +44,10 @@ class MainViewModel @Inject constructor(
                             name = forecast.weather.name,
                             temperature = forecast.temperature.toString(),
                             icon = when (forecast.weather) {
-                                WeatherDomainModel.Cloudy -> R.drawable.img_partly_sunny
-                                WeatherDomainModel.Sunny -> R.drawable.img_clear
-                                WeatherDomainModel.Rainy -> R.drawable.img_rainy
-                                WeatherDomainModel.Default -> R.drawable.img_rainy
+                                Cloudy -> R.drawable.img_partly_sunny
+                                Sunny -> R.drawable.img_clear
+                                Rainy -> R.drawable.img_rainy
+                                Default -> R.drawable.img_rainy
                             }
                         )
                     }

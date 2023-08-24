@@ -1,8 +1,8 @@
 package chepsi.weather.app.di
 
-import chepsi.weather.remote_data_source.api.WeatherRemoteSource
-import chepsi.weather.remote_data_source.api.WeatherRemoteSourceImpl
-import chepsi.weather.remote_data_source.utils.HttpClientFactory
+import chepsi.weather.remotedatasource.api.WeatherRemoteSource
+import chepsi.weather.remotedatasource.api.WeatherRemoteSourceImpl
+import chepsi.weather.remotedatasource.utils.HttpClientFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
