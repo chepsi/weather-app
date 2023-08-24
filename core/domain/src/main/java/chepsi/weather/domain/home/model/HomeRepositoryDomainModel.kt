@@ -6,19 +6,6 @@ data class HomeRepositoryDomainModel(
     val maximumTemperature: Int,
     val weather: WeatherDomainModel,
     val seaLevel: Int,
-    val daysAheadForecast: List<ForecastDomainModel>
-
+    val daysAheadForecast: List<ForecastDomainModel>,
+    val cityName: String
 )
-
-data class ForecastDomainModel(
-    val day: String,
-    val weather: WeatherDomainModel,
-    val temperature: Int
-)
-
-sealed class WeatherDomainModel(val name: String) {
-    object Cloudy : WeatherDomainModel("Cloudy")
-    object Sunny : WeatherDomainModel("Sunny")
-    object Rainy : WeatherDomainModel("Rainy")
-    object Default : WeatherDomainModel("Other")
-}

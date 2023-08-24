@@ -56,7 +56,8 @@ private val expectedValue = HomeRepositoryDomainModel(
     seaLevel = 1000,
     daysAheadForecast = listOf(
         ForecastDomainModel(day = "2023-08-24 12:00:00", weather = Sunny, temperature = 20)
-    )
+    ),
+    cityName = "Gotham"
 )
 
 class HomeDataRepositoryTest {
