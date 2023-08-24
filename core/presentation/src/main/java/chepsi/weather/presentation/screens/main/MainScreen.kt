@@ -101,21 +101,25 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            items(screenState.daysForecast) {
+            items(screenState.daysForecast) { forecast ->
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 20.dp)
                 ) {
-                    Text(text = it.day, Modifier.weight(1f))
+                    Text(text = forecast.day, Modifier.weight(1f))
                     Image(
-                        painter = painterResource(id = it.weatherCondition.forecastDrawable),
-                        contentDescription = it.name,
+                        painter = painterResource(id = forecast.weather.forecastDrawable),
+                        contentDescription = forecast.weather.name,
                         modifier = Modifier
                             .size(24.dp)
                             .weight(1f)
                     )
-                    Text(text = it.temperature, Modifier.weight(1f), textAlign = TextAlign.Right)
+                    Text(
+                        text = forecast.temperature,
+                        modifier = Modifier.weight(1f),
+                        textAlign = TextAlign.Right
+                    )
                 }
             }
         }
