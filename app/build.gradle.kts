@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlinKapt)
     alias(libs.plugins.daggerHilt)
     alias(libs.plugins.junit5)
+    alias(libs.plugins.secrets)
 }
 
 android {

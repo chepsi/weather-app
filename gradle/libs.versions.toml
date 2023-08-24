@@ -26,6 +26,7 @@ mockk = "1.13.7"
 play-services-location = "21.0.1"
 room-ktx = "2.5.2"
 timber = "5.0.1"
+secrets = "2.0.1"
 
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-permissions" }
@@ -78,3 +79,4 @@ daggerHilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hilt
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ktLint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "kt-lint" }
 junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5" }
+secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secrets"}
