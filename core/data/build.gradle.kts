@@ -46,10 +46,6 @@ dependencies {
     implementation(project(":core:remotedatasource"))
     implementation(project(":core:domain"))
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
-
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
 
