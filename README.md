@@ -7,8 +7,10 @@ weather information for a users location
 In your `local.properties` add the line below
 
 ```
-API_KEY = Your Open Weather api key that can be found https://home.openweathermap.org/api_keys
+API_KEY = Your Open Weather api key
 ```
+
+The api key can be found [here](https://home.openweathermap.org/api_keys)
 
 *Environment*
 
@@ -54,13 +56,15 @@ libraries used
 - [CoroutinesTest](https://developer.android.com/kotlin/coroutines/test)
 - [Ktor Client Test](https://ktor.io/docs/http-client-testing.html)
 
-    * Tools and General setup
+* Tools and General setup
+
 - [Gradle secrets plugin](https://github.com/google/secrets-gradle-plugin)
-- [Hilt- For Dependency injection](https://developer.android.com/training/dependency-injection/hilt-android)
-- [Timber- For viewing logs]("https://github.com/JakeWharton/timber")
+- [Hilt - For Dependency injection](https://developer.android.com/training/dependency-injection/hilt-android)
+- [Timber - For viewing logs](https://github.com/JakeWharton/timber)
 - [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
 
-    * Workflows
+
+* Workflows
 - The app has a (github action workflow)[https://github.com/chepsi/weather-app/actions] to run tests
   and build the application once a PR is raised against the main branch
 
@@ -71,5 +75,6 @@ libraries used
 - For the Presentation Layer I used MVVM. I have the MainScreen, MainViewModel and MainScreenState
 
 ![Add Clean architecture diagram](/docs/clean_arch.png)
+
 - Generally I used clean architecture to Separate the different layers of the application as
   outlined above
