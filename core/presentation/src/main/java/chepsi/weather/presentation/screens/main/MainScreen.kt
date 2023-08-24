@@ -14,18 +14,20 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Divider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import chepsi.weather.presentation.R
 import chepsi.weather.presentation.theme.WeatherAppTheme
@@ -58,19 +60,22 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
                     modifier = Modifier.fillMaxWidth(),
                     text = screenState.currentTemperature,
                     textAlign = TextAlign.Center,
-                    fontSize = 40.sp
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = Color.White
                 )
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = screenState.currentWeather.name,
                     textAlign = TextAlign.Center,
-                    fontSize = 40.sp
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = Color.White
                 )
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = screenState.cityName,
                     textAlign = TextAlign.Center,
-                    fontSize = 14.sp
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = Color.White
                 )
             }
         }
@@ -85,21 +90,27 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
                     id = R.string.txt_min_temperature,
                     screenState.minimumTemperature
                 ),
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyMedium,
+                color = Color.White
             )
             Text(
                 text = stringResource(
                     id = R.string.txt_current_temperature,
                     screenState.currentTemperature
                 ),
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyMedium,
+                color = Color.White
             )
             Text(
                 text = stringResource(
                     id = R.string.txt_max_temperature,
                     screenState.maximumTemperature
                 ),
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyMedium,
+                color = Color.White
             )
         }
         Divider()
@@ -113,18 +124,26 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
                         .fillMaxWidth()
                         .padding(horizontal = 20.dp)
                 ) {
-                    Text(text = forecast.day, Modifier.weight(1f))
+                    Text(
+                        text = forecast.day,
+                        modifier = Modifier.weight(1f),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Color.White
+                    )
                     Image(
                         painter = painterResource(id = forecast.weather.forecastDrawable),
                         contentDescription = forecast.weather.name,
                         modifier = Modifier
                             .size(24.dp)
-                            .weight(1f)
+                            .weight(1f),
+                        colorFilter = ColorFilter.tint(Color.White)
                     )
                     Text(
                         text = forecast.temperature,
                         modifier = Modifier.weight(1f),
-                        textAlign = TextAlign.Right
+                        textAlign = TextAlign.Right,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Color.White
                     )
                 }
             }
