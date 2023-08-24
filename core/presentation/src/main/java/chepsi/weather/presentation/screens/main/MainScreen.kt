@@ -21,11 +21,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import chepsi.weather.presentation.R
 import chepsi.weather.presentation.theme.WeatherAppTheme
 
 @Composable
@@ -47,16 +49,24 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.FillHeight
             )
-            Text(
-                text = screenState.currentTemperature +
-                    "\u00B0" +
-                    "\n${screenState.currentWeather.name}",
+            Column(
                 modifier = Modifier
                     .align(Alignment.Center)
-                    .padding(top = 20.dp),
-                textAlign = TextAlign.Center,
-                fontSize = 40.sp
-            )
+                    .padding(top = 20.dp)
+            ) {
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = screenState.currentTemperature,
+                    textAlign = TextAlign.Center,
+                    fontSize = 40.sp
+                )
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = screenState.currentWeather.name,
+                    textAlign = TextAlign.Center,
+                    fontSize = 40.sp
+                )
+            }
         }
         Row(
             modifier = Modifier
@@ -65,15 +75,24 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = screenState.minimumTemperature + "\u00B0" + "\nmin",
+                text = stringResource(
+                    id = R.string.txt_min_temperature,
+                    screenState.minimumTemperature
+                ),
                 textAlign = TextAlign.Center
             )
             Text(
-                text = screenState.currentTemperature + "\u00B0" + "\nCurrent",
+                text = stringResource(
+                    id = R.string.txt_current_temperature,
+                    screenState.currentTemperature
+                ),
                 textAlign = TextAlign.Center
             )
             Text(
-                text = screenState.maximumTemperature + "\u00B0" + "\nmax",
+                text = stringResource(
+                    id = R.string.txt_max_temperature,
+                    screenState.maximumTemperature
+                ),
                 textAlign = TextAlign.Center
             )
         }
@@ -90,7 +109,7 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
                 ) {
                     Text(text = it.day, Modifier.weight(1f))
                     Image(
-                        painter = painterResource(id = it.icon),
+                        painter = painterResource(id = it.weatherCondition.forecastDrawable),
                         contentDescription = it.name,
                         modifier = Modifier
                             .size(24.dp)

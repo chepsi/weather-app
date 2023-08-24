@@ -10,41 +10,48 @@ import chepsi.weather.presentation.theme.ColorSunny
 sealed class WeatherCondition(
     val name: String,
     @DrawableRes val image: Int,
+    @DrawableRes val forecastDrawable: Int,
     val backgroundColor: Color
 ) {
     object ForestCloudy : WeatherCondition(
         name = "Cloudy",
         image = R.drawable.img_forest_cloudy,
-        backgroundColor = ColorCloudy
+        backgroundColor = ColorCloudy,
+        forecastDrawable = R.drawable.img_partly_sunny
     )
 
     object ForestSunny : WeatherCondition(
         name = "Sunny",
         image = R.drawable.img_forest_sunny,
-        backgroundColor = ColorSunny
+        backgroundColor = ColorSunny,
+        forecastDrawable = R.drawable.img_clear
     )
 
     object ForestRainy : WeatherCondition(
         name = "Rainy",
         image = R.drawable.imh_forest_rainy,
-        backgroundColor = ColorRainy
+        backgroundColor = ColorRainy,
+        forecastDrawable = R.drawable.img_rainy
     )
 
     object SeaCloudy : WeatherCondition(
         name = "Cloudy",
         image = R.drawable.img_sea_cloudy,
-        backgroundColor = ColorCloudy
+        backgroundColor = ColorCloudy,
+        forecastDrawable = R.drawable.img_partly_sunny
     )
 
     object SeaSunny : WeatherCondition(
         name = "Sunny",
         image = R.drawable.img_sea_sunny,
-        backgroundColor = ColorSunny
+        backgroundColor = ColorSunny,
+        forecastDrawable = R.drawable.img_clear
     )
 
     object SeaRainy : WeatherCondition(
         name = "Rainy",
         image = R.drawable.img_sea_rainy,
-        backgroundColor = ColorRainy
+        backgroundColor = ColorRainy,
+        forecastDrawable = R.drawable.img_rainy
     )
 }
