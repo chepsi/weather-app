@@ -1,9 +1,9 @@
 package chepsi.weather.data.home.repository
 
 import chepsi.weather.data.home.mappers.ApiToDataModelMapper.toData
-import chepsi.weather.data.home.mappers.DataToDatabaseMapper.toCityEntity
-import chepsi.weather.data.home.mappers.DataToDatabaseMapper.toForecastEntity
-import chepsi.weather.data.home.mappers.DataToDatabaseMapper.toWeatherEntity
+import chepsi.weather.data.home.mappers.DataToDatabaseModelMapper.toCityEntity
+import chepsi.weather.data.home.mappers.DataToDatabaseModelMapper.toForecastEntity
+import chepsi.weather.data.home.mappers.DataToDatabaseModelMapper.toWeatherEntity
 import chepsi.weather.data.home.mappers.DataToDomainModelMapper.toDomain
 import chepsi.weather.data.home.mappers.DatabaseToDataModelMapper
 import chepsi.weather.data.home.model.ForecastDataModel
@@ -52,7 +52,8 @@ class HomeDataRepository @Inject constructor(
         val weather = weatherRemoteSource.fetchWeather(locationRequestModel)
         val forecast = weatherRemoteSource.fetchForecast(locationRequestModel)
         val data = weather.toData(forecast)
-        weatherDao.insert(data.toWeatherEntity())
+        val currentTime = System.currentTimeMillis()
+        weatherDao.insert(data.toWeatherEntity(currentTime))
         forecastDao.insert(data.toForecastEntity())
         cityDao.insert(data.toCityEntity())
         return data

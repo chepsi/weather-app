@@ -27,8 +27,8 @@ object ApiToDataModelMapper {
         CityForecastDataModel(
             date = it.dtTxt.orEmpty(),
             temperature = it.main?.temp.orZero(),
-            minimumTemperature = it.main?.tempMax.orZero(),
-            maximumTemperature = it.main?.tempMin.orZero(),
+            minimumTemperature = it.main?.tempMin.orZero(),
+            maximumTemperature = it.main?.tempMax.orZero(),
             weather = it.weather?.firstOrNull()?.main.orEmpty()
         )
     }

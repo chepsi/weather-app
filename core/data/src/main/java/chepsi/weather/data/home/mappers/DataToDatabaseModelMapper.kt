@@ -5,12 +5,12 @@ import chepsi.weather.localdatasource.city.model.CityEntity
 import chepsi.weather.localdatasource.weather.model.ForecastEntity
 import chepsi.weather.localdatasource.weather.model.WeatherLocalSourceEntity
 
-object DataToDatabaseMapper {
-    fun ForecastDataModel.toWeatherEntity() = WeatherLocalSourceEntity(
+object DataToDatabaseModelMapper {
+    fun ForecastDataModel.toWeatherEntity(currentTime: Long) = WeatherLocalSourceEntity(
         cityId = cityId,
         cityName = cityName,
         seaLevel = seaLevel,
-        createdAt = System.currentTimeMillis(),
+        createdAt = currentTime,
         maximumTemperature = maximumTemperature,
         minimumTemperature = minimumTemperature,
         temperature = currentTemperature,
