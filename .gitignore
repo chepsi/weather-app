@@ -14,3 +14,5 @@
 .cxx
 local.properties
 /.idea/
+/core/build/intermediates/ktLint/reporterProviders.bin
+/core/build/intermediates/ktLint/reporters.bin
