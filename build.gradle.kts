@@ -1,5 +1,3 @@
-
-
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.kotlinAndroid) apply false
@@ -8,7 +6,7 @@ plugins {
     alias(libs.plugins.daggerHilt) apply false
     alias(libs.plugins.kotlinSerialization) apply false
     alias(libs.plugins.kotlinKsp) apply false
-    id("org.jlleitschuh.gradle.ktlint") version "11.5.1"
+    alias(libs.plugins.ktLint)
 }
 
 allprojects {
