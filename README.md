@@ -77,7 +77,7 @@ libraries used
 
 - For the Presentation Layer I used MVVM. I have the MainScreen, MainViewModel and MainScreenState
 
-![Add Clean architecture diagram](/docs/clean_arch.png)
+![Add Clean architecture diagram](/docs/architecture.png)
 
 - Generally I used clean architecture to Separate the different layers of the application as
   outlined above
