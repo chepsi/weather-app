@@ -101,6 +101,7 @@ kotlin {
         all {
             languageSettings.apply {
                 optIn("com.google.accompanist.permissions.ExperimentalPermissionsApi")
+                optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
             }
         }
     }
