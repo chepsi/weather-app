@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import chepsi.weather.domain.home.model.HomeRepositoryDomainModel
 import chepsi.weather.domain.home.repository.HomeRepository
 import chepsi.weather.presentation.screens.main.mapper.DomainToPresentationMappers.toPresentation
 import chepsi.weather.presentation.screens.main.mapper.DomainToPresentationMappers.toTemperatureString
@@ -22,15 +23,22 @@ class MainViewModel @Inject constructor(
     fun onFetchMainScreenDetails() {
         viewModelScope.launch {
             homeRepository.fetchHomeInformation().collect { homeInformation ->
-                mainScreenState = mainScreenState.copy(
-                    currentTemperature = homeInformation.currentTemperature.toTemperatureString(),
-                    minimumTemperature = homeInformation.minimumTemperature.toTemperatureString(),
-                    maximumTemperature = homeInformation.maximumTemperature.toTemperatureString(),
-                    currentWeather = homeInformation.weather.toPresentation(),
-                    daysForecast = homeInformation.daysAheadForecast.toPresentation(),
-                    cityName = homeInformation.cityName
-                )
+                updateState(homeInformation)
             }
         }
+    }
+
+    private fun updateState(homeInformation: HomeRepositoryDomainModel) {
+        val newState = mainScreenState.copy(
+            currentTemperature = homeInformation.currentTemperature.toTemperatureString(),
+            minimumTemperature = homeInformation.minimumTemperature.toTemperatureString(),
+            maximumTemperature = homeInformation.maximumTemperature.toTemperatureString(),
+            currentWeather = homeInformation.weather.toPresentation(),
+            daysForecast = homeInformation.daysAheadForecast.toPresentation(),
+            cityName = homeInformation.cityName,
+            isLoading = false
+        )
+
+        mainScreenState = newState
     }
 }

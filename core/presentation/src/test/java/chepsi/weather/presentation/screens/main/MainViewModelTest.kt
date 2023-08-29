@@ -74,7 +74,8 @@ class MainViewModelTest {
                     weather = ForestSunny
                 )
             ),
-            cityName = "Gotham"
+            cityName = "Gotham",
+            isLoading = false
         )
         val actualValue = classUnderTest.mainScreenState
         assertEquals(expectedValue, actualValue)
