@@ -1,5 +1,8 @@
 package chepsi.weather.data.home.repository
 
+import chepsi.weather.data.home.mappers.DataToDomainModelMapper
+import chepsi.weather.data.home.mappers.DatabaseToDataModelMapper
+import chepsi.weather.data.home.utils.DateAndTimeUtils
 import chepsi.weather.domain.home.model.ForecastDomainModel
 import chepsi.weather.domain.home.model.HomeRepositoryDomainModel
 import chepsi.weather.domain.home.model.WeatherDomainModel.Sunny
@@ -13,6 +16,7 @@ import chepsi.weather.localdatasource.weather.model.WeatherLocalSourceEntity
 import chepsi.weather.remotedatasource.api.WeatherRemoteSource
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
@@ -68,6 +72,8 @@ class HomeDataRepositoryTest {
     private val weatherDao = mockk<WeatherDao>()
     private val forecastDao = mockk<ForecastDao>()
     private val cityDao = mockk<CityDao>()
+    private val dateAndTimeUtils = mockk<DateAndTimeUtils>()
+    private val dataToDomainModelMapper = mockk<DataToDomainModelMapper>()
 
     @BeforeEach
     fun setup() {
@@ -76,7 +82,9 @@ class HomeDataRepositoryTest {
             locationSource = locationSource,
             weatherDao = weatherDao,
             forecastDao = forecastDao,
-            cityDao = cityDao
+            cityDao = cityDao,
+            dateAndTimeUtils = dateAndTimeUtils,
+            dataToDomainModelMapper = dataToDomainModelMapper
         )
     }
 
@@ -91,6 +99,14 @@ class HomeDataRepositoryTest {
         coEvery { weatherDao.getAll() }.returns(flowOf(givenWeatherEntity))
         coEvery { cityDao.getAll() }.returns(flowOf(givenCity))
         coEvery { forecastDao.getAll() }.returns(flowOf(listOf(givenForecast)))
+        every { dateAndTimeUtils.todayInDate() } returns "2023-08-24"
+        every { dateAndTimeUtils.convertToDate(10L) } returns "2023-08-24"
+        val givenDataMode = DatabaseToDataModelMapper.toData(
+            givenWeatherEntity, givenCity, listOf(
+                givenForecast
+            )
+        )
+        every { dataToDomainModelMapper.toDomain(givenDataMode) } returns expectedValue
 
         // When
         var actualValue: HomeRepositoryDomainModel? = null
