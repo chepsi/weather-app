@@ -102,7 +102,9 @@ class HomeDataRepositoryTest {
         every { dateAndTimeUtils.todayInDate() } returns "2023-08-24"
         every { dateAndTimeUtils.convertToDate(10L) } returns "2023-08-24"
         val givenDataMode = DatabaseToDataModelMapper.toData(
-            givenWeatherEntity, givenCity, listOf(
+            givenWeatherEntity,
+            givenCity,
+            listOf(
                 givenForecast
             )
         )
