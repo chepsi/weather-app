@@ -18,7 +18,6 @@ fun MainScreen(mainScreenViewModel: MainViewModel = hiltViewModel()) {
         true -> WeatherAppLoadingComponent()
         false -> MainScreenMainComponent(screenState = screenState)
     }
-
 }
 
 @Preview(showBackground = true)
